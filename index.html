@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#f4f7f3">
+    <title>Today / To Do</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/styles.css">
+    <script src="/app.js" defer></script>
+  </head>
+  <body>
+    <main class="app-shell">
+      <header class="topbar">
+        <a class="wordmark" href="/" aria-label="Today home"><span class="wordmark-mark">t</span>today<span class="wordmark-period">.</span></a>
+        <div class="server-status"><span class="status-dot"></span><span>Saved on this device</span></div>
+      </header>
+
+      <section class="workspace" aria-labelledby="page-title">
+        <div class="date-line"><span class="date-spark" aria-hidden="true">✳</span><span id="today-date"></span></div>
+        <div class="heading-row">
+          <div>
+            <h1 id="page-title">Your day,<br><span>in focus.</span></h1>
+            <p class="subtitle">A little progress adds up.</p>
+          </div>
+          <div class="progress-mark" aria-hidden="true"><span id="progress-number">0</span><small>done</small></div>
+        </div>
+
+        <form class="task-form" id="task-form">
+          <label class="visually-hidden" for="task-input">Add a task</label>
+          <span class="input-plus" aria-hidden="true">+</span>
+          <input id="task-input" name="title" maxlength="200" placeholder="What needs doing?" autocomplete="off" required>
+          <button class="add-button" type="submit" aria-label="Add task" title="Add task">↵</button>
+        </form>
+
+        <div class="list-toolbar">
+          <div class="filter-tabs" role="tablist" aria-label="Filter tasks">
+            <button class="filter-button is-active" type="button" role="tab" aria-selected="true" data-filter="all">All <span id="all-count">0</span></button>
+            <button class="filter-button" type="button" role="tab" aria-selected="false" data-filter="active">To do <span id="active-count">0</span></button>
+            <button class="filter-button" type="button" role="tab" aria-selected="false" data-filter="completed">Done</button>
+          </div>
+          <button class="clear-button" id="clear-completed" type="button" hidden>Clear done</button>
+        </div>
+
+        <ul class="task-list" id="task-list" aria-live="polite"></ul>
+        <p class="error-message" id="error-message" role="alert" hidden></p>
+        <footer class="list-footer"><span class="footer-line"></span><span>One thing at a time</span><span class="footer-line"></span></footer>
+      </section>
+      <div class="page-orbit orbit-one" aria-hidden="true"></div>
+      <div class="page-orbit orbit-two" aria-hidden="true"></div>
+    </main>
+  </body>
+</html>
